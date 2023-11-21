@@ -1,8 +1,10 @@
-import { useState, useRef } from 'react';
+import { useState, useRef ,useContext} from 'react';
+import AuthContext from '../../store/auth-context';
 
 import classes from './AuthForm.module.css';
 
 const AuthForm = () => {
+  const authCtx=useContext(AuthContext)
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading,SetIsLoading]=useState(false);
   const email = useRef();
@@ -40,7 +42,7 @@ const AuthForm = () => {
       SetIsLoading(false)
       if (res.ok){
         const data = await res.json() 
-        console.log(data)
+        authCtx.login(data.idToken)
       }else{
         const data = await res.json()      
         alert(data.error.message)
