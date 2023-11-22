@@ -1,9 +1,11 @@
 import { useState, useRef ,useContext} from 'react';
 import AuthContext from '../../store/auth-context';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 import classes from './AuthForm.module.css';
 
 const AuthForm = () => {
+  const history = useHistory();
   const authCtx=useContext(AuthContext)
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading,SetIsLoading]=useState(false);
@@ -43,6 +45,7 @@ const AuthForm = () => {
       if (res.ok){
         const data = await res.json() 
         authCtx.login(data.idToken)
+        history.push('/')
       }else{
         const data = await res.json()      
         alert(data.error.message)
