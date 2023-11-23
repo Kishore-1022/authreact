@@ -14,10 +14,14 @@ export  const AuthContextProvider=(props)=>{
 
     const  userIsLoggedIn=!!token;
    
-
+    
     const loginHandler=(token)=>{
        setToken(token)
        localStorage.setItem('token', token);
+       setTimeout(()=>{
+        alert('Session Expired!')
+        logoutHandler()
+       },5*60*1000)
     }
     const logoutHandler=()=>{
         setToken(null)

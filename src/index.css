@@ -17,3 +17,9 @@ h5,
 h6 {
   font-family: 'Lato', sans-serif;
 }
+.timer{
+  text-align: end;
+  font-weight: bolder;
+  margin-top: 0;
+  padding-right: 1rem;
+}
