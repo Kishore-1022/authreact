@@ -23,8 +23,6 @@ const ProfileForm = () => {
       }
     })
     history.push('/')
-
-
   }
   return (
     <form className={classes.form} onSubmit={submitHandler}>

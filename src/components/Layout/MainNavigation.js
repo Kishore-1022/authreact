@@ -10,10 +10,9 @@ const MainNavigation = () => {
   const history =useHistory();
 
   const  isLoggedIn=authCtx.isLoggedIn
-   const logoutHandler=()=>{
-    authCtx.logout();
-    history.push('/auth')
 
+  const logoutHandler=()=>{
+    authCtx.logout();
    }
  
   return (
